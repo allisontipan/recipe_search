@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block recipe_card %}
+<p>Add something here</p>
+{% endblock %}

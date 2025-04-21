@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block search_criteria %}
+<p>Add something here</p>
+{% endblock %}

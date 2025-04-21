@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recipe Search</title>
+        <link rel="stylesheet" href="{% static 'recipe_search/css/styles.css' %}">
+    </head>
+    <body>
+        <h1>Recipe Picker</h1>
+        <form method="POST">
+            <label for="ingredients">Enter ingredients to search with(comma separated):</label>
+            <input type="text" list="foods" id="ingredients" name="ingredients" required>
+            <datalist id="foods">
+                <option value="chicken"></option>
+                <option value="pork"></option>
+                <option value="beef"></option>
+                <option value="green onion"></option>
+                <option value="broccoli"></option>
+                <option value="cheddar"></option>
+                <option value="bok choy"></option>
+                <option value="cream"></option>
+                <option value="bell pepper"></option>
+                <option value="orzo"></option>
+                <option value="noodle"></option>
+                <option value="chicken broth"></option>
+                <option value="beef broth"></option>
+                <option value="apple"></option>
+                <option value="miso"></option>
+                <option value="garlic"></option>
+                <option value="ginger"></option>
+                <option value="flour"></option>
+                <option value="carrot"></option>
+                <option value="celery"></option>
+                <option value="onion"></option>
+                <option value="milk"></option>
+                <option value="eggs"></option>
+            </datalist>
+            <button type="submit">Get Recipes</button>
+        </form>
+
+        {% if recipes %}
+        <h2>Recommended Recipes</h2>
+        <ul>
+            {% for recipe in recipes %}
+                <li>
+                    <h3>{{ recipe[0] }}</h3>
+                    <p>{{ recipe[1] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </body>
+</html>
+
+
+<!-- the href can be done with template tag,   href="{% url 'name_of_path_urlpattern' %}"-->
